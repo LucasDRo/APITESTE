@@ -15,7 +15,18 @@ function login(){
                 senha: Isenha.value
             })
         })
-        .then(function (res) { console.log(res) })
+        .then(function (res) { 
+            if (res.ok) {
+                return res.json(); // Assume que o servidor retorna um JSON
+            } else {
+                throw new Error('Login falhou');
+            }
+        })
+        .then(function (data) {
+            // Supondo que o data contém informações úteis
+            console.log(data);
+            window.location.href = "/home.html"; // Redireciona para a nova página
+        })
         .catch(function (res) { console.log(res) })
 }
 
@@ -26,7 +37,7 @@ function limpar(){
 
 form.addEventListener('submit', function (event) {
     event.preventDefault();
-
+    
     login();
 
     limpar();
