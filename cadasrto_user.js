@@ -1,5 +1,6 @@
 const form = document.querySelector("form");
 const Inome = document.querySelector(".nome");
+const Iusuario = document.querySelector(".usuario");
 const Iemail = document.querySelector(".email");
 const Isenha = document.querySelector(".senha");
 const Itelefone = document.querySelector(".tel");
@@ -16,6 +17,7 @@ function cadastrar(){
             body: JSON.stringify({
                 nome: Inome.value,
                 email: Iemail.value,
+                usuario: Iusuario.value,
                 senha: Isenha.value,
                 telefone: Itelefone.value
             })
@@ -27,6 +29,7 @@ function cadastrar(){
 
 function limpar(){
     Inome.value = "";
+    Iusuario.value = "";
     Iemail.value = "";
     Isenha.value = "";
     Itelefone.value = "";
