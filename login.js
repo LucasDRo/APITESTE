@@ -11,8 +11,11 @@ function login(){
             },
             method: "POST",
             body: JSON.stringify({
+                nome: null,
+                email: null,
                 usuario: Iusuario.value,
-                senha: Isenha.value
+                senha: Isenha.value,
+                telefone: null
             })
         })
         .then(function (res) { 
@@ -25,7 +28,11 @@ function login(){
         .then(function (data) {
             // Supondo que o data contém informações úteis
             console.log(data);
-            window.location.href = "/home.html"; // Redireciona para a nova página
+            if(data) {
+                window.location.href = "/home.html"; // Redireciona para a nova página
+            }else{
+                throw new Error('Login falhou');
+            }
         })
         .catch(function (res) { console.log(res) })
 }
