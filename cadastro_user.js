@@ -22,7 +22,15 @@ function cadastrar(){
                 telefone: Itelefone.value
             })
         })
-        .then(function (res) { console.log(res) })
+        .then(function (res) { 
+            if(res.ok){
+                window.alert("Usuário cadastrado");
+                window.location.href = "/index.html";
+            }else{
+                window.alert("Erro ao cadastrar!");
+            }
+
+        })
         .catch(function (res) { console.log(res) })
 
 }

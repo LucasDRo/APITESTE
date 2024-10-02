@@ -18,22 +18,15 @@ function login(){
                 telefone: null
             })
         })
-        .then(function (res) { 
+        .then(function (res) {  
             if (res.ok) {
-                return res.json(); // Assume que o servidor retorna um JSON
-            } else {
-                throw new Error('Login falhou');
-            }
-        })
-        .then(function (data) {
-            // Supondo que o data contém informações úteis
-            console.log(data);
-            if(data) {
                 window.location.href = "/home.html"; // Redireciona para a nova página
-            }else{
+            } else {
+                window.alert("Login Inválido!");
                 throw new Error('Login falhou');
             }
         })
+        .then(function (data) { console.log(data) })
         .catch(function (res) { console.log(res) })
 }
 
