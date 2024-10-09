@@ -2,12 +2,13 @@ const form = document.querySelector("form");
 const Iusuario = document.querySelector(".usuario");
 const Isenha = document.querySelector(".senha");
 
+
 function login(){
     fetch("http://localhost:8080/usuarios/login",
         {
             headers:{
-               'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
             },
             method: "POST",
             body: JSON.stringify({
@@ -20,6 +21,8 @@ function login(){
         })
         .then(function (res) {  
             if (res.ok) {
+                localStorage.setItem("login", true);
+                limpar();
                 window.location.href = "/home.html"; // Redireciona para a nova página
             } else {
                 window.alert("Login Inválido!");
@@ -40,5 +43,5 @@ form.addEventListener('submit', function (event) {
     
     login();
 
-    limpar();
+    
 });
